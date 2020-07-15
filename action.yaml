@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [master]
 
-env:
-  TOKEN: ${{ secrets.ZACKBB_TOKEN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +17,6 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.23.0
         env:
-          GITHUB_TOKEN: ${{ env.TOKEN }}
           DEFAULT_BUMP: none
           RELEASE_BRANCHES: master
           WITH_V: true

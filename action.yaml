@@ -7,16 +7,17 @@ on:
   pull_request:
     branches: [master]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: "0"
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.23.0
-        env:
-          DEFAULT_BUMP: none
-          RELEASE_BRANCHES: master
-          WITH_V: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+outputs:
+  new_tag:
+    description: "Generated tag"
+  tag:
+    description: "The latest tag after running this action"
+  part:
+    description: "The part of version which was bumped"
+branding:
+  icon: "git-merge"
+  color: "purple"

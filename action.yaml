@@ -1,4 +1,4 @@
-name: Bump Workflow Repo
+name: Test Workflow ZackBBraunstein Org
 
 on:
   push:
